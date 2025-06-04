@@ -1,0 +1,25 @@
+import { themeClasses } from "../../../shared/config/theme";
+
+interface ChatHeaderProps {
+  title: string;
+  isOnline?: boolean;
+}
+
+export const ChatHeader = ({ title, isOnline }: ChatHeaderProps) => (
+  <div className={themeClasses.chatHeader}>
+    <div className="flex items-center">
+      <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-lg font-bold text-gray-600 mr-3">
+        {title[0]}
+      </div>
+      <div>
+        <div className="font-medium text-gray-900">{title}</div>
+        <div className="text-xs text-gray-400 flex items-center">
+          {isOnline && (
+            <span className={themeClasses.onlineIndicator + " mr-1"} />
+          )}{" "}
+          {isOnline ? "в сети" : "не в сети"}
+        </div>
+      </div>
+    </div>
+  </div>
+);

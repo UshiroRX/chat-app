@@ -1,15 +1,14 @@
+import { ChatLayout } from "../../modules/layout/ui/chat-page";
 import "./app.css";
-import { ChatPage } from "../../pages/chat-page";
-import { BrowserRouter, Route, Routes }  from "react-router";
+import { BrowserRouter, Route, Routes } from "react-router";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<ChatPage></ChatPage>} ></Route>
-      </Routes>
-
+        <Routes>
+          <Route path="/" element={<ChatLayout></ChatLayout>}></Route>
+        </Routes>
       </BrowserRouter>
     </>
   );

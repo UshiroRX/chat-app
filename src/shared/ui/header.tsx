@@ -1,5 +1,5 @@
+import { themeClasses } from "../config/theme"
 
-import { themeClasses } from "../../../shared/config/theme"
 
 export const Header = () => {
     return (

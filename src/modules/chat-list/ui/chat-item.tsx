@@ -10,13 +10,13 @@ interface ChatItemProps {
 export const ChatItem = ({ chat, onClick, selected }: ChatItemProps) => {
   return (
     <div
-      className={`flex items-center px-4 py-3 cursor-pointer border-b border-gray-100 transition bg-white hover:bg-gray-50 ${
+      className={`flex items-center px-3 py-3 cursor-pointer border-b border-gray-100 transition bg-white hover:bg-gray-50 ${
         selected ? "bg-gray-100" : ""
       }`}
       onClick={onClick}
     >
-      <div className="relative mr-3">
-        <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-lg font-bold text-gray-600">
+      <div className="relative mr-3 ">
+        <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-lg font-bold text-gray-600 ">
           {chat.title[0]}
         </div>
         {chat.isOnline && (
@@ -26,7 +26,7 @@ export const ChatItem = ({ chat, onClick, selected }: ChatItemProps) => {
           />
         )}
       </div>
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 pl-3 min-w-0">
         <div className="flex justify-between items-center">
           <span className="font-medium text-gray-900 truncate">
             {chat.title}
