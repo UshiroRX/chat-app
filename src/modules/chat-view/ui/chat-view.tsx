@@ -15,8 +15,8 @@ interface ChatViewProps {
 export const ChatView = ({ chat, messages, onSend }: ChatViewProps) => {
   return (
     <div className="flex flex-col h-full bg-gray-50">
-      <ChatHeader title={chat.title} isOnline={chat.isOnline} />
-      <ChatMessagesList messages={messages} />
+      <ChatHeader title={chat.title} isOnline={chat.isOnline} isBot={chat.isBot} />
+      <ChatMessagesList messages={messages} isBot={chat.isBot} />
       <ChatInput onSend={onSend} />
     </div>
   );

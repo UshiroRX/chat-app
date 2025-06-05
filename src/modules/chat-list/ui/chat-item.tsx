@@ -28,8 +28,11 @@ export const ChatItem = ({ chat, onClick, selected }: ChatItemProps) => {
       </div>
       <div className="flex-1 pl-3 min-w-0">
         <div className="flex justify-between items-center">
-          <span className="font-medium text-gray-900 truncate">
+          <span className="font-medium text-gray-900 truncate flex items-center gap-2">
             {chat.title}
+            {chat.isBot && (
+              <span className="ml-2 px-2 py-0.5 bg-yellow-200 text-yellow-800 text-xs rounded-full">бот</span>
+            )}
           </span>
           <span className="text-xs text-gray-400 ml-2 whitespace-nowrap">
             {chat.lastMessageTime}
