@@ -18,10 +18,11 @@ export const ChatMessagesList = ({
   }, [messages]);
 
   return (
-    <div className="flex-1 overflow-y-auto px-4 py-4">
+    <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-2 items-end">
       {messages.map((msg, idx) => (
         <div
           key={msg.id}
+          className={msg.fromMe ? "self-end" : "self-start"}
           style={{ marginBottom: idx === messages.length - 1 ? 0 : "10px" }}
         >
           <ChatMessage

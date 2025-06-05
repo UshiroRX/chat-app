@@ -9,10 +9,10 @@ interface ChatHeaderProps {
 export const ChatHeader = ({ title, isOnline, isBot }: ChatHeaderProps) => (
   <div className={themeClasses.chatHeader}>
     <div className="flex items-center">
-      <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-lg font-bold text-gray-600 mr-3">
+      <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-lg font-bold text-gray-600 mr-10">
         {title[0]}
       </div>
-      <div>
+      <div className="pl-3">
         <div className="font-medium text-gray-900 flex items-center gap-2">
           {title}
           {isBot && (
