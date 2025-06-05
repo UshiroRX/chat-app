@@ -10,14 +10,28 @@ interface ChatViewProps {
   chat: Chat;
   messages: ChatMessageType[];
   onSend: (text: string) => void;
+  isBotTyping?: boolean;
 }
 
-export const ChatView = ({ chat, messages, onSend }: ChatViewProps) => {
+export const ChatView = ({
+  chat,
+  messages,
+  onSend,
+  isBotTyping,
+}: ChatViewProps) => {
   return (
     <div className="flex flex-col h-full bg-gray-50">
-      <ChatHeader title={chat.title} isOnline={chat.isOnline} isBot={chat.isBot} />
-      <ChatMessagesList messages={messages} isBot={chat.isBot} />
-      <ChatInput onSend={onSend} />
+      <ChatHeader
+        title={chat.title}
+        isOnline={chat.isOnline}
+        isBot={chat.isBot}
+      />
+      <ChatMessagesList
+        messages={messages}
+        isBot={chat.isBot}
+        isBotTyping={isBotTyping}
+      />
+      <ChatInput onSend={onSend} disabled={isBotTyping} />
     </div>
   );
 };

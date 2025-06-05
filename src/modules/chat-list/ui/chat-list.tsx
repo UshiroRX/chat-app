@@ -1,19 +1,24 @@
 // src/modules/chat-list/ui/chat-list.tsx
 import { useState } from "react";
 import { themeClasses } from "../../../shared/config/theme";
-import { mockChats } from "../model";
 import { ChatItem } from "./chat-item";
 import { ChatFinder } from "./chat-finder";
+import type { Chat } from "../model";
 
 interface ChatListProps {
   selectedChatId: string;
   onSelectChat: (id: string) => void;
+  chats: Chat[];
 }
 
-export const ChatList = ({ selectedChatId, onSelectChat }: ChatListProps) => {
+export const ChatList = ({
+  selectedChatId,
+  onSelectChat,
+  chats,
+}: ChatListProps) => {
   const [search, setSearch] = useState("");
 
-  const filteredChats = mockChats.filter((chat) =>
+  const filteredChats = chats.filter((chat) =>
     chat.title.toLowerCase().includes(search.toLowerCase())
   );
 

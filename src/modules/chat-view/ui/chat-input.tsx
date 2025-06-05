@@ -3,13 +3,14 @@ import { useState } from "react";
 
 interface ChatInputProps {
   onSend: (message: string) => void;
+  disabled?: boolean;
 }
 
-export const ChatInput = ({ onSend }: ChatInputProps) => {
+export const ChatInput = ({ onSend, disabled }: ChatInputProps) => {
   const [value, setValue] = useState("");
 
   const handleSend = () => {
-    if (value.trim()) {
+    if (value.trim() && !disabled) {
       onSend(value);
       setValue("");
     }
@@ -27,10 +28,12 @@ export const ChatInput = ({ onSend }: ChatInputProps) => {
           onKeyDown={(e) => {
             if (e.key === "Enter") handleSend();
           }}
+          disabled={disabled}
         />
         <button
           className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
           onClick={handleSend}
+          disabled={disabled}
         >
           Отправить
         </button>

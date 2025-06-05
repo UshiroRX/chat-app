@@ -5,17 +5,19 @@ import type { ChatMessage as ChatMessageType } from "../../chat-list/model";
 interface ChatMessagesListProps {
   messages: ChatMessageType[];
   isBot?: boolean;
+  isBotTyping?: boolean;
 }
 
 export const ChatMessagesList = ({
   messages,
   isBot,
+  isBotTyping,
 }: ChatMessagesListProps) => {
   const bottomRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [messages, isBotTyping]);
 
   return (
     <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-2 items-end">
@@ -33,6 +35,11 @@ export const ChatMessagesList = ({
           />
         </div>
       ))}
+      {isBotTyping && (
+        <div className="self-start">
+          <ChatMessage text="Печатает..." fromMe={false} time="" isBot={true} />
+        </div>
+      )}
       <div ref={bottomRef} />
     </div>
   );
